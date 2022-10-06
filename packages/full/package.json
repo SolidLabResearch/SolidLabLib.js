@@ -1,0 +1,35 @@
+{
+  "name": "@solidlab/full",
+  "version": "1.0.0",
+  "description": "Helper functions for developing Solid apps",
+  "main": "lib/index.js",
+  "typings": "lib/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SolidLabResearch/SolidLabLib.js.git",
+    "directory": "packages/full"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/SolidLabResearch/SolidLabLib.js/issues"
+  },
+  "homepage": "https://github.com/SolidLabResearch/SolidLabLib.js#readme",
+  "license": "MIT",
+  "keywords": [
+    "solid",
+    "solidlab",
+    "solidlablib",
+    "helpers",
+    "solid app"
+  ],
+  "files": [
+    "lib/**/*.d.ts",
+    "lib/**/*.js"
+  ],
+  "scripts": {
+    "build": "node \"../../node_modules/typescript/bin/tsc\"",
+    "validate": "npm ls"
+  }
+}
