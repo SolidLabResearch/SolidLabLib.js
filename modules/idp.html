@@ -1,0 +1,232 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>idp | SolidLabLib.js</title>
+	<meta name="description" content="Documentation for SolidLabLib.js">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">SolidLabLib.js</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">SolidLabLib.js</a>
+				</li>
+				<li>
+					<a href="idp.html">idp</a>
+				</li>
+			</ul>
+			<h1>Module idp</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<a href="#solidlablibjs---idp" id="solidlablibjs---idp" style="color: inherit; text-decoration: none;">
+						<h1>SolidLabLib.js - IDP</h1>
+					</a>
+					<p><a href="https://github.com/SolidLabResearch/SolidLabLib.js/actions?query=workflow%3ACI"><img src="https://github.com/SolidLabResearch/SolidLabLib.js/workflows/CI/badge.svg" alt="Build status"></a>
+						<a href="https://coveralls.io/github/SolidLabResearch/SolidLabLib.js?branch=master"><img src="https://coveralls.io/repos/github/SolidLabResearch/SolidLabLib.js/badge.svg?branch=master" alt="Coverage Status"></a>
+					<a href="https://www.npmjs.com/package/@solidlab/idp"><img src="https://badge.fury.io/js/%40solidlab%2Fidp.svg" alt="npm version"></a></p>
+					<p>A library of helper functions for developing Solid apps in TypeScript/JavaScript.</p>
+					<p>This package contains helper functions related to the Solid identity provider (a.k.a. OIDC issuer).</p>
+					<a href="#requirements" id="requirements" style="color: inherit; text-decoration: none;">
+						<h2>Requirements</h2>
+					</a>
+					<ul>
+						<li><a href="https://nodejs.org/en/">Node.js</a> <em>(1.14 or higher)</em></li>
+					</ul>
+					<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+						<h2>Installation</h2>
+					</a>
+					<pre><code class="language-bash"><span style="color: #000000">$ npm install @solidlab/idp</span>
+</code></pre>
+					<p>or</p>
+					<pre><code class="language-bash"><span style="color: #000000">$ yarn add @solidlab/idp</span>
+</code></pre>
+					<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+						<h2>Usage</h2>
+					</a>
+					<a href="#obtain-the-identity-provider" id="obtain-the-identity-provider" style="color: inherit; text-decoration: none;">
+						<h3>Obtain the identity provider</h3>
+					</a>
+					<p>The identity provider of a WebID can be determined as follows:</p>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">defaultSolidUtilContext</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/core&#039;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/idp&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">());</span>
+</code></pre>
+					<p>If you have an authenticated Solid session object, you can determine its IDP as follows:</p>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">info</span><span style="color: #000000">.</span><span style="color: #001080">webId</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">));</span>
+</code></pre>
+					<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+						<h2>License</h2>
+					</a>
+					<p>This code is copyrighted by <a href="http://idlab.ugent.be/">Ghent University – imec</a>
+					and released under the <a href="http://opensource.org/licenses/MIT">MIT license</a>.</p>
+				</div>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="idp.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="getIdp" class="tsd-anchor"></a>
+					<h3>get<wbr>Idp</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Idp<span class="tsd-signature-symbol">(</span>webId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/core.SolidUtilContext.html" class="tsd-signature-type" data-tsd-kind="Interface">SolidUtilContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/SolidLabResearch/SolidLabLib.js/blob/da483e9/packages/idp/lib/getIdp.ts#L13">idp/lib/getIdp.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Obtain the identity provider (a.k.a. OIDC issuer) of a given WebID.</p>
+								</div>
+								<p>This function will dereference the URL of the given WebID,
+								and find the value referred to by the <code>solid:oidcIssuer</code> predicate.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>webId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The URL of a WebID.</p>
+									</div>
+								</li>
+								<li>
+									<h5>options: <a href="../interfaces/core.SolidUtilContext.html" class="tsd-signature-type" data-tsd-kind="Interface">SolidUtilContext</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A solid utility context.</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Modules</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="core.html">core</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="idp.html">idp</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="lib.html">lib</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-module">
+						<a href="core.html" class="tsd-kind-icon">core</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-module">
+						<a href="idp.html" class="tsd-kind-icon">idp</a>
+						<ul>
+							<li class=" tsd-kind-function tsd-parent-kind-module">
+								<a href="idp.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-module">
+						<a href="lib.html" class="tsd-kind-icon">lib</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
