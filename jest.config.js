@@ -18,6 +18,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '/node_modules/',
     '/mocks/',
+    '/test/',
     'index.js'
   ],
   testEnvironment: 'node',

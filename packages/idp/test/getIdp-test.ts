@@ -1,7 +1,12 @@
+/** @jest-environment setup-polly-jest/jest-environment-node */
+
 import { defaultSolidUtilContext } from '@solidlab/core';
+import { usePolly } from '../../../test/util';
 import { getIdp } from '../lib/getIdp';
 
 describe('getIdp', () => {
+  usePolly();
+
   it('returns for a valid WebID', async() => {
     expect(await getIdp('https://rubensworks.solidcommunity.net/profile/card#me', defaultSolidUtilContext()))
       .toEqual('https://solidcommunity.net');
