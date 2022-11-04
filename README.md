@@ -2,9 +2,13 @@
 
 [![Build status](https://github.com/SolidLabResearch/SolidLabLib.js/workflows/CI/badge.svg)](https://github.com/SolidLabResearch/SolidLabLib.js/actions?query=workflow%3ACI)
 [![Coverage Status](https://coveralls.io/repos/github/SolidLabResearch/SolidLabLib.js/badge.svg?branch=master)](https://coveralls.io/github/SolidLabResearch/SolidLabLib.js?branch=master)
-[![npm version](https://badge.fury.io/js/%40solidlab%2Ffull.svg)](https://www.npmjs.com/package/@solidlab/full)
+[![npm version](https://badge.fury.io/js/%40solidlab%2Flib.svg)](https://www.npmjs.com/package/@solidlab/lib)
 
 A library of helper functions for developing Solid apps in TypeScript/JavaScript.
+
+The easiest way to make use of this library is via the [`@solidlab/lib`](https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages/lib) package,
+which is a bundle of _all_ helper functions defined in SolidLabLib.
+Alternatively, these helper functions can also be installed [separately](https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages/).
 
 ## Development Setup
 
@@ -33,7 +37,7 @@ $ yarn install
 
 This will install the dependencies of all modules, and bootstrap the Lerna monorepo.
 After that, all [SolidLabLib packages](https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages) are available in the `packages/` folder
-and can be used in a development environment, such as the [full package tool](https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages/full).
+and can be used in a development environment, such as the [lib package tool](https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages/lib).
 
 Furthermore, this will add [pre-commit hooks](https://www.npmjs.com/package/pre-commit)
 to build, lint and test.

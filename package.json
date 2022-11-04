@@ -31,11 +31,14 @@
     "doc": "typedoc"
   },
   "devDependencies": {
+    "@comunica/bindings-factory": "^2.2.0",
+    "@comunica/jest": "^2.4.0",
     "@rubensworks/eslint-config": "^1.0.1",
     "@types/jest": "^28.0.0",
     "@types/node": "^16.0.0",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
+    "asynciterator": "^3.7.1",
     "eslint": "^8.3.0",
     "eslint-config-es": "4.1.0",
     "eslint-import-resolver-typescript": "^2.5.0",
@@ -57,6 +60,7 @@
     "lerna": "^5.0.0",
     "lerna-script": "^1.4.0",
     "manual-git-changelog": "^1.0.1",
+    "rdf-data-factory": "^1.1.1",
     "streamify-string": "^1.0.1",
     "ts-jest": "^28.0.0",
     "typedoc": "^0.21.0",
