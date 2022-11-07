@@ -35,7 +35,7 @@ export function usePolly() {
     pollyContext.polly.server.any().on("beforePersist", (req, recording) => {
       // eslint-disable-next-line no-param-reassign
       recording.request.headers = recording.request.headers.filter(
-        ({ name: pollyName }) => pollyName !== "user-agent"
+        ({ name: pollyName }: { name: string }) => pollyName !== "user-agent"
       );
     });
   });
