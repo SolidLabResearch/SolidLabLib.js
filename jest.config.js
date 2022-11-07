@@ -7,12 +7,6 @@ module.exports = {
     'ts',
     'js'
   ],
-  globals: {
-    'ts-jest': {
-      // Enabling this can fix issues when using prereleases of typings packages
-      //isolatedModules: true
-    },
-  },
   setupFilesAfterEnv: [ './setup-jest.js' ],
   collectCoverage: true,
   coveragePathIgnorePatterns: [
