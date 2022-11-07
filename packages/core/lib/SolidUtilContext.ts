@@ -1,6 +1,6 @@
-import type { IQueryEngine } from '@comunica/types';
-import type { QueryStringContext, QuerySourceContext } from '@rdfjs/types';
-import type { Session } from '@rubensworks/solid-client-authn-isomorphic';
+import type { IQueryEngine } from "@comunica/types";
+import type { QueryStringContext, QuerySourceContext } from "@rdfjs/types";
+import type { Session } from "@rubensworks/solid-client-authn-isomorphic";
 
 /**
  * A Solid utility context object contains data that can be used across different helper functions within SolidLabLib.

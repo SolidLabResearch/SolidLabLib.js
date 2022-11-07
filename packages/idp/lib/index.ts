@@ -1,1 +1,1 @@
-export * from './getIdp';
+export * from "./getIdp";

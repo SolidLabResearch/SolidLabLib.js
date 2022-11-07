@@ -1,4 +1,4 @@
-import type { BindingsStream, Bindings } from '@comunica/types';
+import type { BindingsStream, Bindings } from "@comunica/types";
 
 /**
  * Obtains the first bindings object in a bindings stream.
@@ -7,7 +7,7 @@ import type { BindingsStream, Bindings } from '@comunica/types';
  */
 export async function getFirstBindings(
   bindingsStream: BindingsStream,
-  errorMessage = 'Could not find any results, while at least one was expected',
+  errorMessage = "Could not find any results, while at least one was expected"
 ): Promise<Bindings> {
   const array = await bindingsStream.toArray({ limit: 1 });
   if (array.length === 0) {
