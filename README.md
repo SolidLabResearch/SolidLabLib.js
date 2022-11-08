@@ -22,8 +22,8 @@ If you want to develop new features
 or use the (potentially unstable) in-development version,
 you can set up a development environment.
 
-SolidLabLib requires [Node.JS](http://nodejs.org/) 12.0 or higher and the [Yarn](https://yarnpkg.com/en/) package manager.
-SolidLabLib is tested on OSX, Linux and Windows.
+SolidLabLib requires [Node.JS](http://nodejs.org/) 14.0 or higher and the [Yarn](https://yarnpkg.com/en/) package manager.
+SolidLabLib is tested on OSX, Linux and Windows, both in Node.js and in browsers (Chrome and Firefox).
 
 This project can be setup by cloning and installing it as follows:
 
@@ -44,8 +44,6 @@ to build, lint and test.
 These hooks can temporarily be disabled at your own risk by adding the `-n` flag to the commit command.
 
 ## License
-
-SolidLabLib.js is written by [Ruben Taelman](http://www.rubensworks.net/).
 
 This code is copyrighted by [Ghent University – imec](http://idlab.ugent.be/)
 and released under the [MIT license](http://opensource.org/licenses/MIT).
