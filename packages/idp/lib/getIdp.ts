@@ -1,5 +1,6 @@
 import type { SolidUtilContext } from '@solidlab/core';
-import { getFirstBindings, getTermValue } from '@solidlab/core';
+import { getTermValue } from '@solidlab/core';
+import { queryTerm } from '@solidlab/core/lib/QueryHelpers';
 
 /**
  * Obtain the identity provider (a.k.a. OIDC issuer) of a given WebID.
@@ -11,13 +12,13 @@ import { getFirstBindings, getTermValue } from '@solidlab/core';
  * @param options A solid utility context.
  */
 export async function getIdp(webId: string, options: SolidUtilContext): Promise<string> {
-  const bindings = await options.engine.queryBindings(`
+  return getTermValue(
+    await queryTerm(`
     PREFIX solid: <http://www.w3.org/ns/solid/terms#>
     SELECT ?idp WHERE {
       <${webId}> solid:oidcIssuer ?idp .
-    } LIMIT 1`, { ...options.queryContext, sources: [ webId ]});
-
-  return getTermValue(
-    (await getFirstBindings(bindings, `No 'solid:oidcIssuer' was found for '${webId}'`)).get('idp'),
-  );
+    } LIMIT 1`, { ...options, queryContext: { ...options.queryContext, sources: [ webId ]} }, {
+      errorMessage: `No 'solid:oidcIssuer' was found for '${webId}'`
+    })
+  )
 }
