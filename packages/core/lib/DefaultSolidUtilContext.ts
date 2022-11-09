@@ -1,6 +1,7 @@
 import { QueryEngine } from '@comunica/query-sparql-solid';
 import type { SolidUtilContext, PartialSolidUtilContext } from './SolidUtilContext';
 
+// TODO: Add context parameters to toggle engine?
 /**
  * Construct a solid utility context with default values for all required fields, unless other values where given.
  * @param partialOptions An object that can contain values for some fields in the solid utility context.
