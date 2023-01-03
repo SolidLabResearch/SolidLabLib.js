@@ -13,6 +13,9 @@ dist
 **/lib/**/*.js
 **/lib/**/*.js.map
 **/lib/**/*.d.ts
+**/light.js
+**/light.js.map
+**/light.d.ts
 **/test/**/*.js
 **/test/**/*.js.map
 **/test/**/*.d.ts

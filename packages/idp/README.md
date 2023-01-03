@@ -28,15 +28,26 @@ $ yarn add @solidlab/idp
 
 The identity provider of a WebID can be determined as follows:
 ```typescript
-import { defaultSolidUtilContext } from '@solidlab/core';
 import { getIdp } from '@solidlab/idp';
 
-await getIdp('https://rubensworks.solidcommunity.net/profile/card#me', defaultSolidUtilContext());
+await getIdp('https://rubensworks.solidcommunity.net/profile/card#me');
 ```
 
 If you have an authenticated Solid session object, you can determine its IDP as follows:
 ```typescript
-await getIdp(session.info.webId, defaultSolidUtilContext(session));
+const getIdpWithSession = getIdp.with({ session });
+
+await getIdpWithSession(session.info.webId);
+```
+
+If you want to use a custom query engine instead of the default one,
+make sure to use the `light` version of this package,
+which enables the default query engine to be tree-shaked out during bundling:
+```typescript
+import { getIdp } from '@solidlab/idp/light';
+
+const getIdpWithEngine = getIdp.with({ engine: new CustomQueryEngine() });
+await getIdpWithEngine('https://rubensworks.solidcommunity.net/profile/card#me');
 ```
 
 ## License

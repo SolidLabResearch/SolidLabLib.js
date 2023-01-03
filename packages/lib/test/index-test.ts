@@ -9,7 +9,7 @@ describe('index', () => {
     // Package: core
     expect(Lib.getFirstBindings).toBeTruthy();
     expect(Lib.getTermValue).toBeTruthy();
-    expect(Lib.defaultSolidUtilContext).toBeTruthy();
+    expect(Lib.solidUtilContextFull).toBeTruthy();
 
     // Package: idp
     expect(Lib.getIdp).toBeTruthy();

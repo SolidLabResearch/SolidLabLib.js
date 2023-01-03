@@ -1,4 +1,5 @@
 export * from './BindingsHelpers';
-export * from './DefaultSolidUtilContext';
-export * from './TermHelpers';
 export * from './SolidUtilContext';
+export * from './SolidUtilContextFull';
+export * from './SolidUtilContextLight';
+export * from './TermHelpers';

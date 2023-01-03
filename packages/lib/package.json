@@ -27,7 +27,11 @@
   ],
   "files": [
     "lib/**/*.d.ts",
-    "lib/**/*.js"
+    "lib/**/*.js",
+    "lib/**/*.js.map",
+    "light.d.ts",
+    "light.js",
+    "light.js.map"
   ],
   "scripts": {
     "build": "node \"../../node_modules/typescript/bin/tsc\"",

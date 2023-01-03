@@ -17,6 +17,9 @@ module.exports = function (config) {
         frameworks: ['jasmine', 'webpack'],
 
         files: ['./karma-setup.js', 'packages/**/test/*-test.ts'],
+        exclude: [
+            'packages/core/test/SolidUtilContext-test.ts'
+        ],
         preprocessors: {
             './karma-setup.js': ['webpack'],
             'packages/*/test/**/*-test.ts': ['webpack', 'sourcemap'],
