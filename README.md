@@ -29,7 +29,7 @@ This project can be setup by cloning and installing it as follows:
 
 ```bash
 $ git clone https://github.com/SolidLabResearch/SolidLabLib.js.git
-$ cd comunica
+$ cd SolidLabLib.js
 $ yarn install
 ```
 
