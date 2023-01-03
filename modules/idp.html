@@ -96,13 +96,22 @@
 						<h3>Obtain the identity provider</h3>
 					</a>
 					<p>The identity provider of a WebID can be determined as follows:</p>
-					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">defaultSolidUtilContext</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/core&#039;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/idp&#039;</span><span style="color: #000000">;</span>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/idp&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">());</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 					<p>If you have an authenticated Solid session object, you can determine its IDP as follows:</p>
-					<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">info</span><span style="color: #000000">.</span><span style="color: #001080">webId</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">));</span>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getIdpWithSession</span><span style="color: #000000"> = </span><span style="color: #001080">getIdp</span><span style="color: #000000">.</span><span style="color: #795E26">with</span><span style="color: #000000">({ </span><span style="color: #001080">session</span><span style="color: #000000"> });</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdpWithSession</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">info</span><span style="color: #000000">.</span><span style="color: #001080">webId</span><span style="color: #000000">);</span>
+</code></pre>
+					<p>If you want to use a custom query engine instead of the default one,
+						make sure to use the <code>light</code> version of this package,
+					which enables the default query engine to be tree-shaked out during bundling:</p>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/idp/light&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getIdpWithEngine</span><span style="color: #000000"> = </span><span style="color: #001080">getIdp</span><span style="color: #000000">.</span><span style="color: #795E26">with</span><span style="color: #000000">({ </span><span style="color: #001080">engine:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">CustomQueryEngine</span><span style="color: #000000">() });</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdpWithEngine</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 					<a href="#license" id="license" style="color: inherit; text-decoration: none;">
 						<h2>License</h2>
@@ -116,54 +125,73 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Variables</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="idp.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="idp.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
 					<a name="getIdp" class="tsd-anchor"></a>
-					<h3>get<wbr>Idp</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Idp<span class="tsd-signature-symbol">(</span>webId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/core.SolidUtilContext.html" class="tsd-signature-type" data-tsd-kind="Interface">SolidUtilContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/SolidLabResearch/SolidLabLib.js/blob/7786cc7/packages/idp/lib/getIdp.ts#L13">packages/idp/lib/getIdp.ts:13</a></li>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> get<wbr>Idp</h3>
+					<div class="tsd-signature tsd-kind-icon">get<wbr>Idp<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>with<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/SolidLabResearch/SolidLabLib.js/blob/4d79850/packages/idp/lib/getIdp.ts#L13">packages/idp/lib/getIdp.ts:13</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Obtain the identity provider (a.k.a. OIDC issuer) of a given WebID.</p>
+						</div>
+						<p>This function will dereference the URL of the given WebID,
+						and find the value referred to by the <code>solid:oidcIssuer</code> predicate.</p>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The URL of a WebID.</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>A solid utility context.</p>
+							</dd>
+						</dl>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>with<span class="tsd-signature-symbol">: </span>function</h5>
+								<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-type-literal tsd-has-type-parameter">
+									<li class="tsd-signature tsd-kind-icon">with&lt;C2&gt;<span class="tsd-signature-symbol">(</span>context<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">C2</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="core.html#WithFunction" class="tsd-signature-type" data-tsd-kind="Type alias">WithFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">C2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
 								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Obtain the identity provider (a.k.a. OIDC issuer) of a given WebID.</p>
-								</div>
-								<p>This function will dereference the URL of the given WebID,
-								and find the value referred to by the <code>solid:oidcIssuer</code> predicate.</p>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>webId: <span class="tsd-signature-type">string</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The URL of a WebID.</p>
-									</div>
-								</li>
-								<li>
-									<h5>options: <a href="../interfaces/core.SolidUtilContext.html" class="tsd-signature-type" data-tsd-kind="Interface">SolidUtilContext</a></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A solid utility context.</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<aside class="tsd-sources">
+											<ul>
+												<li>Defined in <a href="https://github.com/SolidLabResearch/SolidLabLib.js/blob/4d79850/packages/core/lib/SolidUtilContext.ts#L77">packages/core/lib/SolidUtilContext.ts:77</a></li>
+											</ul>
+										</aside>
+										<h4 class="tsd-type-parameters-title">Type parameters</h4>
+										<ul class="tsd-type-parameters">
+											<li>
+												<h4>C2<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/core.SolidUtilContext.html" class="tsd-signature-type" data-tsd-kind="Interface">SolidUtilContext</a><span class="tsd-signature-symbol">&gt;</span></h4>
+											</li>
+										</ul>
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>context: <span class="tsd-signature-type">C2</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <a href="core.html#WithFunction" class="tsd-signature-type" data-tsd-kind="Type alias">WithFunction</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">C2</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -194,7 +222,7 @@
 					<li class="current tsd-kind-module">
 						<a href="idp.html" class="tsd-kind-icon">idp</a>
 						<ul>
-							<li class=" tsd-kind-function tsd-parent-kind-module">
+							<li class=" tsd-kind-variable tsd-parent-kind-module">
 								<a href="idp.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a>
 							</li>
 						</ul>
@@ -214,8 +242,11 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>

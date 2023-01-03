@@ -98,9 +98,22 @@
 					</a>
 					<p><em>This canonical package of this function is <a href="https://github.com/SolidLabResearch/SolidLabLib.js/tree/master/packages/idp"><code>@solidlab/idp</code></a></em></p>
 					<p>The identity provider of a WebID can be determined as follows:</p>
-					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">defaultSolidUtilContext</span><span style="color: #000000">, </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/lib&#039;</span><span style="color: #000000">;</span>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/lib&#039;</span><span style="color: #000000">;</span>
 
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">());</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">);</span>
+</code></pre>
+					<p>If you have an authenticated Solid session object, you can determine its IDP as follows:</p>
+					<pre><code class="language-typescript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getIdpWithSession</span><span style="color: #000000"> = </span><span style="color: #001080">getIdp</span><span style="color: #000000">.</span><span style="color: #795E26">with</span><span style="color: #000000">({ </span><span style="color: #001080">session</span><span style="color: #000000"> });</span>
+
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdpWithSession</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">info</span><span style="color: #000000">.</span><span style="color: #001080">webId</span><span style="color: #000000">);</span>
+</code></pre>
+					<p>If you want to use a custom query engine instead of the default one,
+						make sure to use the <code>light</code> version of this package,
+					which enables the default query engine to be tree-shaked out during bundling:</p>
+					<pre><code class="language-typescript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">getIdp</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@solidlab/lib/light&#039;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">getIdpWithEngine</span><span style="color: #000000"> = </span><span style="color: #001080">getIdp</span><span style="color: #000000">.</span><span style="color: #795E26">with</span><span style="color: #000000">({ </span><span style="color: #001080">engine:</span><span style="color: #000000"> </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">CustomQueryEngine</span><span style="color: #000000">() });</span>
+<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdpWithEngine</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;https://rubensworks.solidcommunity.net/profile/card#me&#039;</span><span style="color: #000000">);</span>
 </code></pre>
 					<p>If you have an authenticated Solid session object, you can determine its IDP as follows:</p>
 					<pre><code class="language-typescript"><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">getIdp</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">.</span><span style="color: #001080">info</span><span style="color: #000000">.</span><span style="color: #001080">webId</span><span style="color: #000000">, </span><span style="color: #795E26">defaultSolidUtilContext</span><span style="color: #000000">(</span><span style="color: #001080">session</span><span style="color: #000000">));</span>
@@ -121,11 +134,17 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#PartialSolidUtilContext" class="tsd-kind-icon">Partial<wbr>Solid<wbr>Util<wbr>Context</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#QueryContext" class="tsd-kind-icon">Query<wbr>Context</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#QueryEngine" class="tsd-kind-icon">Query<wbr>Engine</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#SolidUtilContext" class="tsd-kind-icon">Solid<wbr>Util<wbr>Context</a></li>
-								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#defaultSolidUtilContext" class="tsd-kind-icon">default<wbr>Solid<wbr>Util<wbr>Context</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#WithFunction" class="tsd-kind-icon">With<wbr>Function</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#createWithContext" class="tsd-kind-icon">create<wbr>With<wbr>Context</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#defaultQueryEngine" class="tsd-kind-icon">default<wbr>Query<wbr>Engine</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#getFirstBindings" class="tsd-kind-icon">get<wbr>First<wbr>Bindings</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#getIdp" class="tsd-kind-icon">get<wbr>Idp</a></li>
 								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#getTermValue" class="tsd-kind-icon">get<wbr>Term<wbr>Value</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#isValidContext" class="tsd-kind-icon">is<wbr>Valid<wbr>Context</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#solidUtilContextFull" class="tsd-kind-icon">solid<wbr>Util<wbr>Context<wbr>Full</a></li>
+								<li class="tsd-kind-reference tsd-parent-kind-module"><a href="lib.html#solidUtilContextLight" class="tsd-kind-icon">solid<wbr>Util<wbr>Context<wbr>Light</a></li>
 							</ul>
 						</section>
 					</div>
@@ -144,14 +163,29 @@
 					Re-exports <a href="core.html#QueryContext">QueryContext</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="QueryEngine" class="tsd-anchor"></a>
+					<h3>Query<wbr>Engine</h3>
+					Re-exports <a href="core.html#QueryEngine">QueryEngine</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="SolidUtilContext" class="tsd-anchor"></a>
 					<h3>Solid<wbr>Util<wbr>Context</h3>
 					Re-exports <a href="../interfaces/core.SolidUtilContext.html">SolidUtilContext</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
-					<a name="defaultSolidUtilContext" class="tsd-anchor"></a>
-					<h3>default<wbr>Solid<wbr>Util<wbr>Context</h3>
-					Re-exports <a href="core.html#defaultSolidUtilContext">defaultSolidUtilContext</a>
+					<a name="WithFunction" class="tsd-anchor"></a>
+					<h3>With<wbr>Function</h3>
+					Re-exports <a href="core.html#WithFunction">WithFunction</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="createWithContext" class="tsd-anchor"></a>
+					<h3>create<wbr>With<wbr>Context</h3>
+					Re-exports <a href="core.html#createWithContext">createWithContext</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="defaultQueryEngine" class="tsd-anchor"></a>
+					<h3>default<wbr>Query<wbr>Engine</h3>
+					Re-exports <a href="core.html#defaultQueryEngine">defaultQueryEngine</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="getFirstBindings" class="tsd-anchor"></a>
@@ -161,12 +195,27 @@
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="getIdp" class="tsd-anchor"></a>
 					<h3>get<wbr>Idp</h3>
-					Re-exports <a href="idp.html#getIdp">getIdp</a>
+					Re-exports <a href="">getIdp</a>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
 					<a name="getTermValue" class="tsd-anchor"></a>
 					<h3>get<wbr>Term<wbr>Value</h3>
 					Re-exports <a href="core.html#getTermValue">getTermValue</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="isValidContext" class="tsd-anchor"></a>
+					<h3>is<wbr>Valid<wbr>Context</h3>
+					Re-exports <a href="core.html#isValidContext">isValidContext</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="solidUtilContextFull" class="tsd-anchor"></a>
+					<h3>solid<wbr>Util<wbr>Context<wbr>Full</h3>
+					Re-exports <a href="core.html#solidUtilContextFull">solidUtilContextFull</a>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-reference tsd-parent-kind-module">
+					<a name="solidUtilContextLight" class="tsd-anchor"></a>
+					<h3>solid<wbr>Util<wbr>Context<wbr>Light</h3>
+					Re-exports <a href="core.html#solidUtilContextLight">solidUtilContextLight</a>
 				</section>
 			</section>
 		</div>
@@ -207,10 +256,19 @@
 								<a href="lib.html#QueryContext" class="tsd-kind-icon">Query<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#QueryEngine" class="tsd-kind-icon">Query<wbr>Engine</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
 								<a href="lib.html#SolidUtilContext" class="tsd-kind-icon">Solid<wbr>Util<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-reference tsd-parent-kind-module">
-								<a href="lib.html#defaultSolidUtilContext" class="tsd-kind-icon">default<wbr>Solid<wbr>Util<wbr>Context</a>
+								<a href="lib.html#WithFunction" class="tsd-kind-icon">With<wbr>Function</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#createWithContext" class="tsd-kind-icon">create<wbr>With<wbr>Context</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#defaultQueryEngine" class="tsd-kind-icon">default<wbr>Query<wbr>Engine</a>
 							</li>
 							<li class=" tsd-kind-reference tsd-parent-kind-module">
 								<a href="lib.html#getFirstBindings" class="tsd-kind-icon">get<wbr>First<wbr>Bindings</a>
@@ -220,6 +278,15 @@
 							</li>
 							<li class=" tsd-kind-reference tsd-parent-kind-module">
 								<a href="lib.html#getTermValue" class="tsd-kind-icon">get<wbr>Term<wbr>Value</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#isValidContext" class="tsd-kind-icon">is<wbr>Valid<wbr>Context</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#solidUtilContextFull" class="tsd-kind-icon">solid<wbr>Util<wbr>Context<wbr>Full</a>
+							</li>
+							<li class=" tsd-kind-reference tsd-parent-kind-module">
+								<a href="lib.html#solidUtilContextLight" class="tsd-kind-icon">solid<wbr>Util<wbr>Context<wbr>Light</a>
 							</li>
 						</ul>
 					</li>
@@ -235,8 +302,11 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
