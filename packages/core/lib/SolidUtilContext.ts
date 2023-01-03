@@ -1,5 +1,4 @@
-import type { IQueryEngine } from '@comunica/types';
-import type { QueryStringContext, QuerySourceContext } from '@rdfjs/types';
+import type * as RDF from '@rdfjs/types';
 import type { Session } from '@rubensworks/solid-client-authn-isomorphic';
 
 /**
@@ -13,12 +12,14 @@ export interface SolidUtilContext {
   /**
    * A query engine object that can be used for finding data.
    */
-  engine: IQueryEngine;
+  engine: RDF.StringSparqlQueryable<RDF.SparqlResultSupport, QueryContext>;
   /**
    * A context object for passing options to the query engine during query execution.
    */
-  queryContext: QueryStringContext & QuerySourceContext<string>;
+  queryContext: QueryContext;
 }
+
+export type QueryContext = RDF.QueryStringContext & RDF.QuerySourceContext<string>;
 
 /**
  * A Solid utility context where all fields are optional.
