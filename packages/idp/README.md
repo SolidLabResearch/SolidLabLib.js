@@ -28,7 +28,7 @@ $ yarn add @solidlab/idp
 
 The identity provider of a WebID can be determined as follows:
 ```typescript
-import { getIdp } from '@solidlab/idp';
+import { getIdp } from '@solidlab/idp'; // Or getIdentityProvider
 
 await getIdp('https://rubensworks.solidcommunity.net/profile/card#me');
 ```

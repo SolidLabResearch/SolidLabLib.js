@@ -31,7 +31,7 @@ _This canonical package of this function is [`@solidlab/idp`](https://github.com
 
 The identity provider of a WebID can be determined as follows:
 ```typescript
-import { getIdp } from '@solidlab/lib';
+import { getIdp } from '@solidlab/lib'; // Or getIdentityProvider
 
 await getIdp('https://rubensworks.solidcommunity.net/profile/card#me');
 ```

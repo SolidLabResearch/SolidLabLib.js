@@ -10,7 +10,7 @@ import { getFirstBindings, getTermValue, createWithContext } from '@solidlab/cor
  * @param webId The URL of a WebID.
  * @param options A solid utility context.
  */
-export const getIdp = createWithContext((context: SolidUtilContext) =>
+export const getIdentityProvider = createWithContext((context: SolidUtilContext) =>
   async(webId: string): Promise<string> => {
     const bindings = await context.engine.queryBindings(`
     PREFIX solid: <http://www.w3.org/ns/solid/terms#>
@@ -22,3 +22,5 @@ export const getIdp = createWithContext((context: SolidUtilContext) =>
       (await getFirstBindings(bindings, `No 'solid:oidcIssuer' was found for '${webId}'`)).get('idp'),
     );
   });
+
+export const getIdp = getIdentityProvider;
